@@ -1,0 +1,370 @@
+{
+ "links": [
+  {
+   "source": 0,
+   "target": 1,
+   "value": 2
+  },
+  {
+   "source": 0,
+   "target": 2,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 3,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 4,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 5,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 6,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 7,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 8,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 9,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 10,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 11,
+   "value": 2
+  },
+  {
+   "source": 0,
+   "target": 12,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 13,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 14,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 15,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 16,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 17,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 18,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 19,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 20,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 21,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 22,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 23,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 24,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 25,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 26,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 27,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 28,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 29,
+   "value": 3
+  },
+  {
+   "source": 0,
+   "target": 30,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 31,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 32,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 33,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 34,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 35,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 36,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 37,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 38,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 39,
+   "value": 1
+  },
+  {
+   "source": 0,
+   "target": 40,
+   "value": 1
+  }
+ ],
+ "nodes": [
+  {
+   "group": 1,
+   "name": "https://www.google.com"
+  },
+  {
+   "group": 2,
+   "name": "#"
+  },
+  {
+   "group": 3,
+   "name": "https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/"
+  },
+  {
+   "group": 4,
+   "name": "https://books.google.com/bkshp?hl=en&tab=wp"
+  },
+  {
+   "group": 5,
+   "name": "https://contacts.google.com/?hl=en&tab=wC"
+  },
+  {
+   "group": 6,
+   "name": "https://docs.google.com/document/?usp=docs_alc"
+  },
+  {
+   "group": 7,
+   "name": "https://drive.google.com/?tab=wo"
+  },
+  {
+   "group": 8,
+   "name": "https://earth.google.com/web/"
+  },
+  {
+   "group": 9,
+   "name": "https://hangouts.google.com/"
+  },
+  {
+   "group": 10,
+   "name": "https://jamboard.google.com/?usp=jam_ald"
+  },
+  {
+   "group": 11,
+   "name": "https://keep.google.com/"
+  },
+  {
+   "group": 12,
+   "name": "https://mail.google.com/mail/?tab=wm"
+  },
+  {
+   "group": 13,
+   "name": "https://maps.google.com/maps?hl=en&tab=wl"
+  },
+  {
+   "group": 14,
+   "name": "https://myaccount.google.com/?utm_source=OGB&utm_medium=app"
+  },
+  {
+   "group": 15,
+   "name": "https://news.google.com/nwshp?hl=en&tab=wn"
+  },
+  {
+   "group": 16,
+   "name": "https://photos.google.com/?tab=wq&pageId=none"
+  },
+  {
+   "group": 17,
+   "name": "https://play.google.com/?hl=en&tab=w8"
+  },
+  {
+   "group": 18,
+   "name": "https://plus.google.com/?gpsrc=ogpy0&tab=wX"
+  },
+  {
+   "group": 19,
+   "name": "https://store.google.com/?utm_source=hp_header&utm_medium=google_oo&utm_campaign=GS100042"
+  },
+  {
+   "group": 20,
+   "name": "https://translate.google.com/?hl=en&tab=wT"
+  },
+  {
+   "group": 21,
+   "name": "https://www.blogger.com/?tab=wj"
+  },
+  {
+   "group": 22,
+   "name": "https://www.google.com//support.google.com/websearch/?p=ws_results_help&hl=en&fg=1"
+  },
+  {
+   "group": 23,
+   "name": "https://www.google.com/advanced_search?hl=en&fg=1"
+  },
+  {
+   "group": 24,
+   "name": "https://www.google.com/calendar?tab=wc"
+  },
+  {
+   "group": 25,
+   "name": "https://www.google.com/finance?tab=we"
+  },
+  {
+   "group": 26,
+   "name": "https://www.google.com/history/optout?hl=en&fg=1"
+  },
+  {
+   "group": 27,
+   "name": "https://www.google.com/history/privacyadvisor/search?utm_source=googlemenu&fg=1"
+  },
+  {
+   "group": 28,
+   "name": "https://www.google.com/imghp?hl=en&tab=wi"
+  },
+  {
+   "group": 29,
+   "name": "https://www.google.com/intl/en/about/?fg=1&utm_source=google-US&utm_medium=referral&utm_campaign=hp-header"
+  },
+  {
+   "group": 30,
+   "name": "https://www.google.com/intl/en/about/products?tab=wh"
+  },
+  {
+   "group": 31,
+   "name": "https://www.google.com/intl/en_us/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1"
+  },
+  {
+   "group": 32,
+   "name": "https://www.google.com/intl/en_us/policies/privacy/?fg=1"
+  },
+  {
+   "group": 33,
+   "name": "https://www.google.com/intl/en_us/policies/terms/?fg=1"
+  },
+  {
+   "group": 34,
+   "name": "https://www.google.com/preferences?hl=en"
+  },
+  {
+   "group": 35,
+   "name": "https://www.google.com/preferences?hl=en&fg=1"
+  },
+  {
+   "group": 36,
+   "name": "https://www.google.com/save"
+  },
+  {
+   "group": 37,
+   "name": "https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1"
+  },
+  {
+   "group": 38,
+   "name": "https://www.google.com/shopping?hl=en&source=og&tab=wf"
+  },
+  {
+   "group": 39,
+   "name": "https://www.google.com/url?q=https://www.google.com/about/stories/womenrising%3Futm_source%3Dgoogle%26utm_medium%3Dhpp%26utm_campaign%3DUSA&source=hpp&id=19010569&ct=3&usg=AFQjCNG54-cOYhc9I3TXD5FHMOVzXiZtGQ&sa=X&ved=0ahUKEwivhbH3spbgAhUlVd8KHdB0BZ4Q8IcBCAk"
+  },
+  {
+   "group": 40,
+   "name": "https://www.google.com/webhp?tab=ww"
+  },
+  {
+   "group": 41,
+   "name": "https://www.youtube.com/?gl=US"
+  }
+ ]
+}
