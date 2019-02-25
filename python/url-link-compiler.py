@@ -30,7 +30,7 @@ def scrape_one(url):
     hrefs = []
 #    sourceDestination = {"results":[]}
     try:
-        r = requests.get(url, headers=headers, timeout=10)
+        r = requests.get(url, headers=headers, timeout=30)
 
         if r.status_code == 200:
             html = r.text
@@ -51,44 +51,55 @@ def scrape_one(url):
 #                    sourceDestination["results"].append({url:a['href']})
 #            listing_section = soup.select('#offers_table table > tbody > tr > td > h3 > a')
 #            links = [link['href'].strip() for link in listing_section]
+    except requests.exceptions.Timeout as e:
+        print (e)
     except Exception as ex:
         print(str(ex))
     finally:
         return hrefs
 
-def get_listing(url):
+def get_links(url):
     headers = {
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'}
     html = None
     links = None
-    hrefs = []
+#    hrefs = []
     sourceDestination = {"results":[]}
     try:
-        r = requests.get(url, headers=headers, timeout=10)
+        r = requests.get(url, headers=headers, timeout=30)
 
         if r.status_code == 200:
             html = r.text
             soup = BeautifulSoup(html, 'lxml')
+            root = Parse(url).scheme + '://' + Parse(url).authority
             for a in soup.find_all('a', href=True):
                 # Does the href start with a domain?
+                # Reference:
+                # / = root of the current drive
+                # ./ = current directory
+                # ../ = parent of the current directory
+                
                 if a['href'].startswith('/'):
-                    hrefs.append(url + a['href'])
-                    sourceDestination["results"].append({url:url + a['href']})
-                elif a['href'] == './':
+                    link = root + a['href']
+#                    sourceDestination["results"].append({root: link})
+                elif a['href'] == './' or a['href'] == '#':
                     continue
                 elif a['href'].startswith('./'):
-                    concat = a['href'].replace('.', url)
-                    hrefs.append(concat)
-                    sourceDestination["results"].append({url:concat})
+                    link = a['href'].replace('.', url)
+                    root = url
+#                    sourceDestination["results"].append({url: link})
                 else:
-                    hrefs.append(a['href'])
-                    sourceDestination["results"].append({url:a['href']})
-#            listing_section = soup.select('#offers_table table > tbody > tr > td > h3 > a')
-#            links = [link['href'].strip() for link in listing_section]
+                    link = a['href']
+                    root = url
+#                    sourceDestination["results"].append({url: link})
+                    
+                sourceDestination["results"].append({root: link})
+    except requests.exceptions.ConnectionError:
+        pass
     except Exception as ex:
         print(str(ex))
     finally:
-        return hrefs, sourceDestination
+        return sourceDestination
 
 
 # parse a single item to get information
@@ -140,43 +151,66 @@ def parse(url):
         else:
             return None
 
-
+class Parse:
+    
+    def __init__(self, url):
+        self.parse = urisplit(url)
+        self.scheme = self.parse.scheme
+        self.authority = self.parse.authority
+        self.path = self.parse.path
+        self.query = self.parse.query
+        self.fragment = self.parse.fragment
+        
 def parseUrl(url):
     
     parsed = urisplit(url)
     return parsed
-
-#car_links = None
-#cars_info = []
-#cars_links = get_listing('https://www.olx.com.pk/cars/')
-#
-#[cars_info.append(parse(car_link)) for car_link in cars_links]
-#if len(cars_info) > 0:
-#    with open('data.csv', 'a+') as f:
-#        f.write('\n'.join(cars_info))
         
 if __name__ == "__main__":
     
-#    car_links = None
-#    cars_info = []
-#    cars_links = get_listing('https://www.olx.com.pk/cars/')
+#    hrefs = scrape_one('https://www.google.com')
+    # Seed links
+    sourceDestination = get_links('https://www.google.com')
+    
+    # Produce second level links    
+    for i in sourceDestination['results']:
+        for j in i:
+            for k,v in i.items():
+                if k == v:
+#                    print("Same value in key and value!")
+                    continue
+                elif v == '' or v == None:
+                    continue
+                # AttributeError: 'list' object has no attribute 'startswith'
+                elif not v.startswith('http') or not v.startswith('https'):
+                    continue
+                else:
+#                    print("Getting links from " + str(v))
+                    newLink = get_links(v)
+                    for link in newLink['results']:
+                        sourceDestination['results'].append(link)
+#                    if newLink == '' or newLink == None:
+#                        continue
+#                    print(newLink)
+#                    sourceDestination['results'].append(newLink)
+#                    print("Complete!")
 
-    hrefs, sourceDestination = get_listing('https://www.google.com')
     sourceDestinationL = []
     
-    start = time()
-    p = Pool(3)
-    records, sourceDestination = p.map(get_listing, hrefs)
-    p.terminate()
-    p.join()
-    
-    totaltime = time()-start
-    
-    print(totaltime)
+#    start = time()
+#    p = Pool(3)
+#    records, sourceDestination = p.map(get_links, hrefs)
+#    p.terminate()
+#    p.join()
+#    
+#    totaltime = time()-start
+#    
+#    print(totaltime)
     
     for i in sourceDestination['results']:
-        for k, v in i.items():
-            sourceDestinationL.append([k,v])
+        for j in i:
+            for k, v in i.items():
+                sourceDestinationL.append([k,v])
             
     sdDf = DataFrame(sourceDestinationL, columns=['Source', 'Destination'])
     
@@ -214,7 +248,7 @@ if __name__ == "__main__":
     json_out.write(json_dump)
     json_out.close()
     
-    flatlist = [item for sublist in records for item in sublist]
+#    flatlist = [item for sublist in records for item in sublist]
     
     df = DataFrame(flatlist)
     df.drop_duplicates(inplace=True)
